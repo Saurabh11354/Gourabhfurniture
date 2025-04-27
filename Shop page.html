@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop - Gourabh Furniture</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background: #f9f9f9;
+            color: #333;
+        }
+
+        header {
+            background: #2c3e50;
+            color: white;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+            align-items: center;
+        }
+
+        nav ul li {
+            position: relative;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 16px;
+            padding: 8px 12px;
+            border-radius: 5px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        nav ul li a:hover {
+            background-color: white;
+            color: #2c3e50;
+        }
+
+        nav input[type="search"] {
+            padding: 7px 15px;
+            border-radius: 20px;
+            border: none;
+            outline: none;
+            margin-left: 20px;
+            font-size: 14px;
+        }
+
+        .toggle {
+            display: none;
+            font-size: 28px;
+            cursor: pointer;
+        }
+
+        @media (max-width: 768px) {
+            nav ul li {
+                display: none;
+            }
+
+            nav input[type="search"] {
+                display: none;
+            }
+
+            .toggle {
+                display: block;
+            }
+        }
+
+        .section {
+            padding: 60px 20px;
+            max-width: 1200px;
+            margin: auto;
+            text-align: center;
+        }
+
+        .products {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            padding-bottom: 15px;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .product-card img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+        }
+
+        .product-card h3 {
+            margin: 15px 0 5px;
+            font-size: 1.2rem;
+        }
+
+        .product-card p {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 10px;
+        }
+
+        .product-card .price {
+            font-weight: bold;
+            color: #0ea5e9;
+            margin-bottom: 10px;
+        }
+
+        .product-card a.shop-button {
+            background: linear-gradient(45deg, #0ea5e9, #38bdf8);
+            background-size: 200% auto;
+            color: white;
+            padding: 8px 20px;
+            text-decoration: none;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            transition: background-position 0.5s, transform 0.3s, box-shadow 0.3s;
+            display: inline-block;
+        }
+
+        .product-card a.shop-button:hover {
+            background-position: right center;
+            transform: scale(1.1);
+            box-shadow: 0 8px 20px rgba(2, 132, 199, 0.5);
+            background: linear-gradient(45deg, #0ea5e9, #8b5cf6, #ec4899);
+
+        }
+
+
+        footer {
+            background: #111;
+            color: #ddd;
+            padding: 60px 20px;
+            font-size: 15px;
+            margin-top: 60px;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+        }
+
+        .footer-about {
+            text-align: center;
+            margin-top: 80px;
+        }
+
+        .footer-about h2 {
+            color: lightgreen;
+            font-size: 1.5rem;
+        }
+
+        .footer-about p {
+            color: #87ceeb;
+        }
+
+        .footer-location i {
+            margin-right: 8px;
+            color: #00bcd4;
+        }
+
+        footer a {
+            color: #00bcd4;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        .footer-socials i {
+            font-size: 20px;
+            margin-right: 15px;
+            cursor: pointer;
+            transition: color 0.3s, transform 0.3s;
+        }
+
+        .footer-socials i:hover {
+            color: #00bcd4;
+            transform: scale(1.2);
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="logo">Gourabh Furniture</div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="shop.html">Shop</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <input type="search" placeholder="Search">
+            </ul>
+            <div class="toggle">&#9776;</div>
+        </nav>
+    </header>
+
+    <section class="section">
+        <h1>Our Products</h1>
+        <div class="products">
+
+            <div class="product-card">
+                <img src="https://m.media-amazon.com/images/I/617LmCRqpJL._AC_UF894,1000_QL80_.jpg" alt="Luxury Sofa">
+                <h3>Luxury Sofa</h3>
+                <p>Elegant comfort for your living room.</p>
+                <div class="price">₹25,999</div>
+                <a class="shop-button" href="#">Shop Now</a>
+            </div>
+
+            <div class="product-card">
+                <img src="https://www.decornation.in/wp-content/uploads/2020/06/buy-online-wooden-cabinet.jpg"
+                    alt="Wooden Cabinet">
+                <h3>Wooden Cabinet</h3>
+                <p>Organize your space with style.</p>
+                <div class="price">₹14,499</div>
+                <a class="shop-button" href="#">Shop Now</a>
+            </div>
+
+            <div class="product-card">
+                <img src="https://cdn.shopify.com/s/files/1/0634/9271/8835/files/modern-style-wardrobe-master-bedroom-wardrobe-design-with-dressing-table_600x600.jpg?v=1717137720"
+                    alt="Modern Wardrobe">
+                <h3>Modern Wardrobe</h3>
+                <p>Spacious and elegant storage solution.</p>
+                <div class="price">₹19,999</div>
+                <a class="shop-button" href="#">Shop Now</a>
+            </div>
+
+            <div class="product-card">
+                <img src="https://cdn.media.amplience.net/i/boconcept/5e71bf97-1116-4c70-b27d-b08f00704c40?locale=*&w=3020&fmt=auto&upscale=false&sm=c&qlt=75&h=3020&poi=0.58505934%2C0.5729192%2C0.125%2C0.088339224&scaleFit=poi"
+                    alt="Dining Chair">
+                <h3>Dining Chair</h3>
+                <p>Perfect blend of comfort and design.</p>
+                <div class="price">₹4,499</div>
+                <a class="shop-button" href="#">Shop Now</a>
+            </div>
+
+            <div class="product-card">
+                <img src="https://i.ytimg.com/vi/n3hgoY2q4HA/hq720.jpg" alt="Wooden Bed">
+                <h3>Wooden Bed</h3>
+                <p>Sleep in luxury every night.</p>
+                <div class="price">₹22,999</div>
+                <a class="shop-button" href="#">Shop Now</a>
+            </div>
+
+            <div class="product-card">
+                <img src="https://m.media-amazon.com/images/I/81oz0Vd-OxL._AC_UF894,1000_QL80_.jpg"
+                    alt="Modern Dining Set">
+                <h3>Modern Dining Set</h3>
+                <p>Stylish dining set for your family meals.</p>
+                <div class="price">₹29,999</div>
+                <a class="shop-button" href="#">Shop Now</a>
+            </div>
+
+            <div class="product-card">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ9i11MEWoDJxRZVfCfbbDs-YEUzXG6i9vL9A&s"
+                    alt="Modern TV Unit">
+                <h3>Modern TV Unit</h3>
+                <p>Chic entertainment center for your home.</p>
+                <div class="price">₹17,499</div>
+                <a class="shop-button" href="#">Shop Now</a>
+            </div>
+
+            <div class="product-card">
+                <img src="https://mysleepyhead.com/media/catalog/product/o/r/original_1_2_19.jpg" alt="King Size Bed">
+                <h3>King Size Bed</h3>
+                <p>Luxury king size bed for your bedroom.</p>
+                <div class="price">₹32,999</div>
+                <a class="shop-button" href="#">Shop Now</a>
+            </div>
+
+            <div class="product-card">
+                <img src="https://cdn.moglix.com/p/F3SSb8lJqESBA-xxlarge.jpg" alt="Office Chair">
+                <h3>Office Chair</h3>
+                <p>Comfortable seating for work-from-home setups.</p>
+                <div class="price">₹7,499</div>
+                <a class="shop-button" href="#">Shop Now</a>
+            </div>
+
+            <div class="product-card">
+                <img src="https://m.media-amazon.com/images/I/612U04+qmXL.jpg" alt="Elegant Armchair">
+                <h3>Elegant Armchair</h3>
+                <p>Elegant design for your stylish lounge.</p>
+                <div class="price">₹8,999</div>
+                <a class="shop-button" href="#">Shop Now</a>
+            </div>
+
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-about">
+                <h2>Gourabh Furniture</h2>
+                <p>Private Limited Company</p>
+            </div>
+
+            <div class="footer-location">
+                <h3>Main Office</h3>
+                <p><i class="fa-solid fa-envelope"></i> sharmagourabh4@gmail.com</p>
+                <p><i class="fa-solid fa-phone"></i> +91 8237898346</p>
+                <p><i class="fa-solid fa-location-dot"></i> Shop no 188, Hari Om Welfare Society, Mumbai</p>
+                <a href="https://goo.gl/maps/ziPWb9hRzGAqeruu7?g_st=ach"><u>See on Map</u></a>
+            </div>
+
+            <div class="footer-location">
+                <h3>Manufacturing Office</h3>
+                <p><i class="fa-solid fa-envelope"></i> sharmamithlesh415@gmail.com</p>
+                <p><i class="fa-solid fa-phone"></i> +91 8055897958</p>
+                <p><i class="fa-solid fa-location-dot"></i> Naigon East, Poman, Maharashtra</p>
+                <a href="#"><u>See on Map</u></a>
+            </div>
+
+            <div class="footer-newsletter">
+                <h3>Stay Smart</h3>
+                <p>Want to be the smartest in your office?</p>
+                <a href="#"><u>Sign up for our Furniture</u></a>
+                <div class="footer-socials">
+                    <i class="fa-brands fa-facebook-f"></i>
+                    <i class="fa-brands fa-chrome"></i>
+                    <i class="fa-brands fa-instagram"></i>
+                    <i class="fa-brands fa-linkedin-in"></i>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

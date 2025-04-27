@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contact - Gourabh Furniture</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Roboto', sans-serif;
+    }
+
+    body {
+      background: linear-gradient(to right, #87ceeb, #ffffff);
+      color: #333;
+    }
+
+    header {
+      background: #2c3e50;
+      color: white;
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .logo {
+      font-size: 28px;
+      font-weight: bold;
+      letter-spacing: 2px;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 25px;
+      align-items: center;
+    }
+
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 16px;
+      padding: 8px 12px;
+      border-radius: 5px;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    nav ul li a:hover {
+      background-color: white;
+      color: #2c3e50;
+    }
+
+    nav input[type="search"] {
+      padding: 7px 15px;
+      border-radius: 20px;
+      border: none;
+      outline: none;
+      margin-left: 20px;
+      font-size: 14px;
+    }
+
+    .contact-section {
+      padding: 60px 20px;
+      max-width: 800px;
+      margin: auto;
+      text-align: center;
+    }
+
+    .contact-section h1 {
+      font-size: 3rem;
+      color: #2c3e50;
+      margin-bottom: 20px;
+    }
+
+    .contact-section p {
+      font-size: 1.2rem;
+      line-height: 1.6;
+      color: #555;
+      margin-bottom: 30px;
+    }
+
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      padding: 15px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 16px;
+      width: 100%;
+    }
+
+    .contact-form button {
+      padding: 15px;
+      background-color: #2c3e50;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .contact-form button:hover {
+      background-color: #1a252f;
+    }
+
+    footer {
+      background: #111;
+      color: #ddd;
+      padding: 60px 20px;
+      font-size: 15px;
+      margin-top: 40px;
+    }
+
+    .footer-container {
+      max-width: 1200px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 40px;
+    }
+
+    .footer-about,
+    .footer-location,
+    .footer-newsletter {
+      text-align: center;
+    }
+
+    footer h2,
+    footer h3 {
+      color: #fff;
+      margin-bottom: 15px;
+    }
+
+    footer p {
+      margin-bottom: 10px;
+      line-height: 1.6;
+    }
+
+    footer a {
+      color: #00bcd4;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    .footer-socials {
+      margin-top: 20px;
+    }
+
+    .footer-socials i {
+      font-size: 20px;
+      margin-right: 15px;
+      cursor: pointer;
+      transition: color 0.3s, transform 0.3s;
+    }
+
+    .footer-socials i:hover {
+      color: #00bcd4;
+      transform: scale(1.2);
+    }
+
+    .toggle {
+      display: none;
+      font-size: 28px;
+      cursor: pointer;
+    }
+
+    @media (max-width: 768px) {
+      nav ul li {
+        display: none;
+      }
+
+      nav input[type="search"] {
+        display: none;
+      }
+
+      .toggle {
+        display: block;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .contact-section h1 {
+        font-size: 2rem;
+      }
+
+      nav ul {
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      nav input[type="search"] {
+        margin-left: 0;
+        margin-top: 10px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="logo">Gourabh Furniture</div>
+    <nav>
+      <ul>
+        <li><a href="My Company.html">Home</a></li>
+        <li><a href="Shop page.html">Shop</a></li>
+        <li><a href="About.html">About</a></li>
+        <li><a href="Contact.html">Contact</a></li>
+        <input type="search" placeholder="Search">
+      </ul>
+      <div class="toggle">&#9776;</div>
+    </nav>
+  </header>
+
+  <section class="contact-section">
+    <h1>Contact Us</h1>
+    <p>Have any questions? Feel free to reach out to us!</p>
+    <form action="https://api.web3forms.com/submit" method="POST" class="contact-form">
+      <input type="hidden" name="access_key" value="3fb543c4-723a-4683-ac21-6d58bbeb3107">
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="email" name="email" placeholder="Your Email" required>
+      <textarea rows="6" name="mess"placeholder="Your Message" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
+
+  <footer>
+    <div class="footer-container">
+      <div class="footer-about">
+        <h2>Gourabh Furniture</h2>
+        <p>Private Limited Company</p>
+      </div>
+      <div class="footer-location">
+        <h3>Main Office</h3>
+        <p><i class="fa-solid fa-envelope"></i> sharmagourabh4@gmail.com</p>
+        <p><i class="fa-solid fa-phone"></i> +91 8237898346</p>
+        <p><i class="fa-solid fa-location-dot"></i> Shop no 188, Hari Om Welfare Society Annadish Compound Santosh
+          Bhuvan NSP(E)</p>
+        <a href="https://goo.gl/maps/ziPWb9hRzGAqeruu7?g_st=ach"><u>See on Map</u></a>
+      </div>
+      <div class="footer-location">
+        <h3>Manufacturing Office</h3>
+        <p><i class="fa-solid fa-envelope"></i> sharmamithlesh415@gmail.com</p>
+        <p><i class="fa-solid fa-phone"></i> +91 8055897958</p>
+        <p><i class="fa-solid fa-location-dot"></i> Naigon East, Poman, Maharashtra Near Universal College Of
+          Engineering Mumbai</p>
+        <a href="#"><u>See on Map</u></a>
+      </div>
+      <div class="footer-newsletter">
+        <h3>Stay Smart</h3>
+        <p>Want to be the smartest in your office?</p>
+        <a href="#"><u>Sign up for our Furniture</u></a>
+        <div class="footer-socials">
+          <i class="fa-brands fa-facebook-f"></i>
+          <i class="fa-brands fa-chrome"></i>
+          <i class="fa-brands fa-instagram"></i>
+          <i class="fa-brands fa-linkedin-in"></i>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const toggle = document.querySelector('.toggle');
+    const menuItems = document.querySelectorAll('nav ul li, nav input[type="search"]');
+
+    toggle.addEventListener('click', () => {
+      menuItems.forEach(item => {
+        if (item.style.display === 'block') {
+          item.style.display = 'none';
+        } else {
+          item.style.display = 'block';
+        }
+      });
+    });
+  </script>
+
+</body>
+
+</html>

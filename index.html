@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Gourabh Furniture</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Roboto', sans-serif;
+    }
+
+    body {
+      background: linear-gradient(to right, #87ceeb, #ffffff);
+      color: #333;
+    }
+
+    header {
+      background: #2c3e50;
+      color: white;
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .logo {
+      font-size: 28px;
+      font-weight: bold;
+      letter-spacing: 2px;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 25px;
+      align-items: center;
+    }
+
+    nav ul li {
+      position: relative;
+    }
+
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 16px;
+      padding: 8px 12px;
+      border-radius: 5px;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    nav ul li a:hover {
+      background-color: white;
+      color: #2c3e50;
+    }
+
+    nav input[type="search"] {
+      padding: 7px 15px;
+      border-radius: 20px;
+      border: none;
+      outline: none;
+      margin-left: 20px;
+      font-size: 14px;
+    }
+
+    .hero {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 60px 20px;
+      background: url('https://images.unsplash.com/photo-1598300057562-df7a4a586013') no-repeat center center/cover;
+      color: white;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+      color: red;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      max-width: 600px;
+      color: coral;
+    }
+
+    .products {
+      padding: 40px 20px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+    }
+
+    .product-card {
+      background: white;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s, box-shadow 0.3s;
+      cursor: pointer;
+    }
+
+    .product-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
+
+    .product-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .product-card:hover img {
+      transform: scale(1.05);
+    }
+
+    .product-info {
+      padding: 15px;
+    }
+
+    .product-info h3 {
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+    }
+
+    .product-info p {
+      color: #777;
+      font-size: 0.9rem;
+    }
+
+    footer {
+      background: #111;
+      color: #ddd;
+      padding: 60px 20px;
+      font-size: 15px;
+    }
+
+    .footer-container {
+      max-width: 1200px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 40px;
+    }
+
+    .footer-about {
+      text-align: center;
+      margin-top: 80px;
+    }
+
+    .footer-about h2 {
+      color: lightgreen;
+      font-size: 1.5rem;
+    }
+
+    .footer-about p {
+      color: #87ceeb;
+    }
+
+    footer h2,
+    footer h3 {
+      color: #fff;
+      margin-bottom: 15px;
+    }
+
+    footer p {
+      margin-bottom: 10px;
+      line-height: 1.6;
+    }
+
+    footer a {
+      color: #00bcd4;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    .footer-socials {
+      margin-top: 20px;
+    }
+
+    .footer-socials i {
+      font-size: 20px;
+      margin-right: 15px;
+      cursor: pointer;
+      transition: color 0.3s, transform 0.3s;
+    }
+
+    .footer-socials i:hover {
+      color: #00bcd4;
+      transform: scale(1.2);
+    }
+
+    .footer-location i {
+      margin-right: 8px;
+      color: #00bcd4;
+    }
+
+    .toggle {
+      display: none;
+      font-size: 28px;
+      cursor: pointer;
+    }
+
+    @media (max-width: 768px) {
+      nav ul li {
+        display: none;
+      }
+
+      nav input[type="search"] {
+        display: none;
+      }
+
+      .toggle {
+        display: block;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .hero h1 {
+        font-size: 2rem;
+      }
+
+      nav ul {
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      nav input[type="search"] {
+        margin-left: 0;
+        margin-top: 10px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="logo">Gourabh Furniture</div>
+    <nav>
+      <ul>
+        <li><a href="My Company.html">Home</a></li>
+        <li><a href="Shop page.html">Shop</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <input type="search" placeholder="Search">
+      </ul>
+      <div class="toggle">&#9776;</div>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1>Modern Furniture for Every Home</h1>
+    <p>Discover stylish and affordable furniture designed to bring comfort and elegance into your life.</p>
+  </section>
+
+  <section class="products">
+    <div class="product-card">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS_eDAlkmmf4Jti6HuzcJpup4RYUq-lpzO-7A&s="
+            alt="Antique Chair" />
+        <div class="product-info">
+            <h3>Antique Chair</h3>
+            <p>Elegant antique chair perfect for vintage home decor.</p>
+        </div>
+    </div>
+    <div class="product-card">
+        <img src="https://m.media-amazon.com/images/I/617LmCRqpJL._AC_UF894,1000_QL80_.jpg" alt="Luxury Sofa Set" />
+        <div class="product-info">
+            <h3>Luxury Sofa Set</h3>
+            <p>Handcrafted luxury sofa set for your living room.</p>
+        </div>
+    </div>
+    <div class="product-card">
+        <img src="https://images-cdn.ubuy.co.in/64f2db9c78a75765700f7ab1-ikifly-modern-glossy-white-coffee-table.jpg"
+            alt="Glossy White Coffee Table" />
+        <div class="product-info">
+            <h3>Glossy White Coffee Table</h3>
+            <p>Modern glossy white coffee table for contemporary interiors.</p>
+        </div>
+    </div>
+    <div class="product-card">
+        <img src="https://www.decornation.in/wp-content/uploads/2020/06/buy-online-wooden-cabinet.jpg"
+            alt="Wooden Cabinet" />
+        <div class="product-info">
+            <h3>Wooden Cabinet</h3>
+            <p>Stylish and functional wooden cabinet for your home storage.</p>
+        </div>
+    </div>
+    <div class="product-card">
+        <img src="https://m.media-amazon.com/images/I/81oz0Vd-OxL._AC_UF894,1000_QL80_.jpg"
+            alt="Modern Dining Set" />
+        <div class="product-info">
+            <h3>Modern Dining Set</h3>
+            <p>A sleek and modern dining set for your dining area.</p>
+        </div>
+    </div>
+    <div class="product-card">
+        <img src="https://shop.gkwretail.com/cdn/shop/products/DiningSetDiningTablewith6ChairsDiningSet-1_df86642c-a6ae-4a4c-84a7-bbf566878c5d.jpg?v=1639401691&width=1445"
+            alt="Kitchen & Dining Set" />
+        <div class="product-info">
+            <h3>Kitchen & Dining Set</h3>
+            <p>Premium quality kitchen and dining set for a complete home experience.</p>
+        </div>
+    </div>
+    <div class="product-card">
+        <img src="https://cdn.media.amplience.net/i/boconcept/5e71bf97-1116-4c70-b27d-b08f00704c40?locale=*&w=3020&fmt=auto&upscale=false&sm=c&qlt=75&h=3020&poi=0.58505934%2C0.5729192%2C0.125%2C0.088339224&scaleFit=poi"
+            alt="Dining Chairs" />
+        <div class="product-info">
+            <h3>Dining Chairs</h3>
+            <p>Comfortable dining chairs for modern dining rooms.</p>
+        </div>
+    </div>
+    <div class="product-card">
+        <img src="https://i.ytimg.com/vi/n3hgoY2q4HA/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLAe-oDh31j7CidvfyA4DxfTscdAMg"
+            alt="Wooden Bed" />
+        <div class="product-info">
+            <h3>Wooden Bed</h3>
+            <p>Handcrafted wooden bed for a cozy and stylish bedroom.</p>
+        </div>
+    </div>
+    <div class="product-card">
+        <img src="https://cdn.shopify.com/s/files/1/0634/9271/8835/files/modern-style-wardrobe-master-bedroom-wardrobe-design-with-dressing-table_600x600.jpg?v=1717137720"
+            alt="Modern Bedroom Wardrobe" />
+        <div class="product-info">
+            <h3>Modern Bedroom Wardrobe</h3>
+            <p>A modern and spacious wardrobe for your bedroom.</p>
+        </div>
+    </div>
+    <div class="product-card">
+        <img src="https://orderofficefurniture.co.uk/cdn/shop/files/20230308_172731.jpg?v=1690469437&width=1214" alt="Leather Office Chair" />
+        <div class="product-info">
+            <h3>Leather Office Chair</h3>
+            <p>Premium quality leather office chair for comfort and style.</p>
+        </div>
+    </div>
+    <div class="product-card">
+        <img src="https://medleyhome.com/cdn/shop/articles/Lala_90x110_Bumper_Sectional-New_Delhi_Bleach_fabric-Walnut_Thom_Leg-Rendering-1_1_1.jpg?v=1677193859&width=1500"
+            alt="Comfortable Sofa" />
+        <div class="product-info">
+            <h3>Comfortable Sofa</h3>
+            <p>Cozy and comfortable sofa for your living room.</p>
+        </div>
+    </div>
+    <div class="product-card">
+        <img src="https://m.media-amazon.com/images/I/612U04+qmXL.jpg"
+            alt="Elegant Armchair" />
+        <div class="product-info">
+            <h3>Elegant Armchair</h3>
+            <p>Stylish armchair
+            </p>
+        </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-container">
+      <div class="footer-about">
+        <h2>Gourabh Furniture</h2>
+        <p>Private Limited Company</p>
+      </div>
+
+      <div class="footer-location">
+        <h3>Main Office</h3>
+        <p><i class="fa-solid fa-envelope"></i> sharmagourabh4@gmail.com</p>
+        <p><i class="fa-solid fa-phone"></i> +91 8237898346</p>
+        <p><i class="fa-solid fa-location-dot"></i> Shop no 188, Hari Om Welfare Society Annadish Compound Santosh Bhuvan NSP(E)</p>
+        <a href="https://goo.gl/maps/ziPWb9hRzGAqeruu7?g_st=ach"><u>See on Map</u></a>
+      </div>
+
+      <div class="footer-location">
+        <h3>Manufacturing Office</h3>
+        <p><i class="fa-solid fa-envelope"></i> sharmamithlesh415@gmail.com</p>
+        <p><i class="fa-solid fa-phone"></i> +91 8055897958</p>
+        <p><i class="fa-solid fa-location-dot"></i> Naigon East,Poman,Maharashtra Near Universal College Of Engineering Mumbai</p>
+        <a href="#"><u>See on Map</u></a>
+      </div>
+
+      <div class="footer-newsletter">
+        <h3>Stay Smart</h3>
+        <p>Want to be the smartest in your office?</p>
+        <a href="#"><u>Sign up for our Furniture</u></a>
+        <div class="footer-socials">
+          <i class="fa-brands fa-facebook-f"></i>
+          <i class="fa-brands fa-chrome"></i>
+          <i class="fa-brands fa-instagram"></i>
+          <i class="fa-brands fa-linkedin-in"></i>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const toggle = document.querySelector('.toggle');
+    const menuItems = document.querySelectorAll('nav ul li, nav input[type="search"]');
+
+    toggle.addEventListener('click', () => {
+      menuItems.forEach(item => {
+        if (item.style.display === 'block') {
+          item.style.display = 'none';
+        } else {
+          item.style.display = 'block';
+        }
+      });
+    });
+  </script>
+
+</body>
+
+</html>
