@@ -371,6 +371,21 @@
             </div>
         </div>
     </footer>
+    <script>
+  const toggle = document.querySelector('.toggle');
+  const menuItems = document.querySelectorAll('nav ul li, nav input[type="search"]');
+
+  toggle.addEventListener('click', () => {
+    menuItems.forEach(item => {
+      if (item.style.display === 'block') {
+        item.style.display = 'none';
+      } else {
+        item.style.display = 'block';
+      }
+    });
+  });
+</script>
+
 </body>
 
 </html>
